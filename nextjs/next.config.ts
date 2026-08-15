@@ -11,6 +11,12 @@ const nextConfig: NextConfig = {
         hostname: 'react.dev',
         pathname: '/**', // Allows any path on this domain
       },
+      {
+        protocol: 'https',
+        hostname: 'placecats.com',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 };

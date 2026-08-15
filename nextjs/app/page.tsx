@@ -8,14 +8,14 @@
 
 "use client";
 
-import Scoreboard from './components/managing-state/state/preserving-resetting/Scoreboard';
+import SaveForm from './components/external-system/custom-hook/SaveForm';
 
 export default function Home() {
   return (
     <div>
       <main className="p-8">
 
-        <Scoreboard
+        <SaveForm
         />
 
       </main>

@@ -12,6 +12,16 @@ export default function Form() {
 
   // const [fullName, setFullName] = useState('');
 
+  // ❌ Avoid: unnecessary Effect
+  //    When you update the state, React will first call your component functions to 
+  //    calculate what should be on the screen. Then React will “commit” these changes 
+  //    to the DOM, updating the screen. Then React will run your Effects. If your Effect 
+  //    also immediately updates the state, this restarts the whole process from scratch
+
+  // useEffect(() => {
+  //   setFullName(firstName + ' ' + lastName);
+  // }, [firstName, lastName]);s
+
   /*
     Note: The `color` state variable holds the *first* value of `initialColor`. 
           Further changes to the `initialColor` prop are ignored.
