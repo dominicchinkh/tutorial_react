@@ -5,6 +5,53 @@ interface Position {
   y: number;
 }
 
+/*
+ * You should use a custom hook in React whenever you find yourself duplicating stateful
+ * logic across multiple components, or when you want to extract complex, messy code out
+ * of a component to make it clean and readable
+ *
+ * A custom hook is simply a JavaScript function whose name starts with use (which tells 
+ * React to apply hook rules) and can call other hooks like useState, useEffect, or 
+ * useSyncExternalStore
+ *
+ * Key Scenarios for Custom Hooks:
+ * 
+ * 1. Sharing Stateful Logic (The DRY Principle)
+ *    If two or more components need to do the same thing with state, don't copy-paste 
+ *    the code. Extract it into a custom hook.
+ *
+ *    Examples: useAuth() to check if a user is logged in, useMediaQuery() to track 
+ *              screen size, or useLocalStorage() to sync state with browser storage
+ *
+ * 2. Isolating Complex Side Effects and Subscriptions
+ *    Components should ideally focus on rendering UI, not managing browser event 
+ *    listeners, timers, or network subscriptions. Moving these out keeps your components
+ *    focused and testable
+ *
+ *    Example: The useOnlineStatus() hook encapsulates all the window event listeners 
+ *             (online and offline) away from the UI components
+ *
+ * 3. Decoupling Data Fetching or Form Management
+ *    Managing API requests, loading states, errors, or complex multi-step form inputs 
+ *    can bloat a component
+ *
+ *    Example: useFormValidation() or useFetchData(url) can handle the lifecycle of 
+ *             fetching data so your component only has to worry about displaying the 
+ *             result (isLoading, data, error)
+ *
+ * When NOT to Use a Custom Hook:
+ * 
+ * For pure utility functions: 
+ * If your logic doesn't use any React hooks (like useState, useEffect, etc.) and just
+ * transforms data (e.g., formatting a date or calculating a total price), it should 
+ * just be a regular JavaScript helper function, not a custom hook
+ *
+ * Just to split up a single component: 
+ * If a component is getting too big, but the state isn't being shared elsewhere, you 
+ * might just need smaller sub-components rather than a custom hook
+ * 
+ */
+
 // Custom hook
 function useDelayedValue<T>(value: T, delay:number): T {
   const [delayedValue, setDelayedValue] = useState<T>(value);

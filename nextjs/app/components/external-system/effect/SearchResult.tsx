@@ -7,9 +7,9 @@ interface SearchResponse {
 
 // 2. Simple custom hook
 
-//    If you don’t use a framework (and don’t want to build your own) but would like
-//    to make data fetching from Effects more ergonomic, consider extracting your 
-//    fetching logic into a custom Hook
+// If you don’t use a framework (and don’t want to build your own) but would like
+// to make data fetching from Effects more ergonomic, consider extracting your 
+// fetching logic into a custom Hook
 
 function useData<T>(url: string): T | null {
   const [data, setData] = useState<T | null>(null);

@@ -12,6 +12,17 @@ function MyInput({ ref }: MyInputProps) {
 
   const realInputRef = useRef<HTMLInputElement | null>(null);
 
+  /*
+   * By default, when a parent passes a ref to a child, that ref points directly to 
+   * the child's DOM node (like an <input> or <div>). This breaks component 
+   * encapsulation because the parent can now access or modify anything inside that 
+   * DOM node
+   *
+   * useImperativeHandle solves this by letting you restrict what the parent can do,
+   * exposing only specific methods (like focus(), reset(), or scrollTo()) while keeping
+   * the rest of the child's internals private
+   */
+
   useImperativeHandle(ref, () => ({
 
     // Only expose focus and nothing else
@@ -37,6 +48,10 @@ export default function MyForm() {
 
   function handleClick() {
     if (inputRef.current != null) {
+
+      // Under the hood, this triggers the custom function we wrote inside 
+      // useImperativeHandle
+      
       inputRef.current.focus();
     }
   }

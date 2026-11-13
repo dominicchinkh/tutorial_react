@@ -42,6 +42,13 @@ export default function List() {
     // need to either group them into a single <div>, or use the <Fragment>
     // syntax
 
+    // React treats the fragment as a virtual wrapper to satisfy the single-root 
+    // requirement, but it disappears from the final rendered HTML
+
+    // While React allows a shorthand syntax for fragments (<>...</>), that shorthand
+    // cannot accept props. Because you must pass a key={person.id} to each list item, 
+    // you have to import and use the explicit <Fragment> component instead
+
     /*
      * import { Fragment } from 'react';
      *

@@ -9,6 +9,7 @@ function useData(url: string | null) {
   useEffect(() => {
     if (url) {
       let ignore = false;
+      
       fetch(url)
         .then(response => response.json())
         .then(json => {
@@ -16,6 +17,7 @@ function useData(url: string | null) {
             setData(json);
           }
         });
+
       return () => {
         ignore = true;
       };

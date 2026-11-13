@@ -19,9 +19,9 @@ export default function Form() {
         DOM node 
 
         Initially, myRef.current will be null. When React creates a DOM node for this 
-        <div>, React will put a reference to this node into myRef.current. You can then 
-        access this DOM node from your event handlers and use the built-in browser APIs 
-        defined on it.
+        <div>, React will put a reference to this node into inputRef.current. You can  
+        then access this DOM node from your event handlers and use the built-in browser  
+        APIs defined on it
         
       */}
       <input ref={inputRef} />

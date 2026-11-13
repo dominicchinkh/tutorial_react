@@ -26,6 +26,23 @@ function subscribe(callback: () => void) {
 }
 
 function useOnlineStatus() {
+
+  /*
+   *  useSyncExternalStore forces the external store to be read synchronously during a 
+   *  render, ensuring that all components on the screen show the exact same version of 
+   *  the data
+   * 
+   *  subscribe: A function that registers a callback listener. Whenever the store 
+   *             changes, it calls this callback, which tells React to re-render
+   *
+   *  getSnapshot: A function that returns a snapshot of the current value from the 
+   *               store. React compares this value using Object.is to see if the store 
+   *               has changed
+   *
+   *  getServerSnapshot: (Optional) A function that returns the initial snapshot used 
+   *                     during Server-Side Rendering (SSR) and hydration
+   */
+
   return useSyncExternalStore(
     subscribe,
     () => navigator.onLine, // How to get the value on the client
